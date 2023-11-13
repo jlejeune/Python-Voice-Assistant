@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING, Any, Unpack
 from dacite import from_dict
 
 if TYPE_CHECKING:  # pragma no cover
-    from assistant.models.message import Message
+    from python_voice_assistant.models.message import Message
 
 
 @dataclass

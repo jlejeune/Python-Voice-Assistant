@@ -1,3 +1,3 @@
 import setuptools
 
-setuptools.setup(packages=["assistant"])
+setuptools.setup(packages=["python_voice_assistant"])

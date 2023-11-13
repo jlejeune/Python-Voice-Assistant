@@ -5,15 +5,15 @@ from typing import TYPE_CHECKING, Optional
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-from assistant.actions.analyzer import Analyzer
-from assistant.actions.collection.openai import OpenAiAction
-from assistant.core.config import analyzer_config
-from assistant.exceptions.listener import ListenerTimeout
-from assistant.models.message import Message
+from python_voice_assistant.actions.analyzer import Analyzer
+from python_voice_assistant.actions.collection.openai import OpenAiAction
+from python_voice_assistant.core.config import analyzer_config
+from python_voice_assistant.exceptions.listener import ListenerTimeout
+from python_voice_assistant.models.message import Message
 
 if TYPE_CHECKING:  # pragma no cover
-    from assistant.core.listener import Listener
-    from assistant.core.responder import Responder
+    from python_voice_assistant.core.listener import Listener
+    from python_voice_assistant.core.responder import Responder
 
 
 class Conversation:

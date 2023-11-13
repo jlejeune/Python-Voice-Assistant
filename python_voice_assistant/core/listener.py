@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 import speech_recognition as sr
 
-from assistant.exceptions.listener import ListenerTimeout
+from python_voice_assistant.exceptions.listener import ListenerTimeout
 
 if TYPE_CHECKING:  # pragma no cover
     from speech_recognition.audio import AudioData

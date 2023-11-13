@@ -1,8 +1,8 @@
 from functools import lru_cache
 from typing import TYPE_CHECKING, Any, Optional
 
-from assistant.actions.config import ENABLED_ACTIONS
-from assistant.core.config import math_symbols_mapping
+from python_voice_assistant.actions.config import ENABLED_ACTIONS
+from python_voice_assistant.core.config import math_symbols_mapping
 
 if TYPE_CHECKING:  # no pragma cover
     from scipy.sparse._csr import csr_matrix

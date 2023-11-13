@@ -1,8 +1,9 @@
-from assistant.actions.collection.assistant import (
+from python_voice_assistant.actions.collection.assistant import (
     EnableAssistantAction,
     StopAssistantAction,
 )
-from assistant.actions.collection.date import DateAction, TimeAction
+from python_voice_assistant.actions.collection.date import DateAction, TimeAction
+
 
 ACTIONS: list[dict] = [
     {

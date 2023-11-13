@@ -16,26 +16,29 @@ python -m pip install -r requirements.txt
 
 ## Configration
 
+Rename the ```python_voice_assistant/.env.example``` file to ```.env``` and replace the values by your own.
+
 ### Assistant name
 
-Define the name of your assistant (assistant_name variable) in assistant/core/config.py file.
+Define the name of your assistant, by using the ASSISTANT_NAME variable.
 
 That name will be used to wake up your assistant before interacting with him.
 
 ### OpenAI
 
-Define your OpenAi API key (openai_api_key) in assistant/client/config.py file.
+Define your OpenAi API key with the OPENAI_API_KEY variable.
 
 ## Create a custom action
 
 To create a custom action:
 
-1. Create a new python class in assistant/actions/collection folder:
+1. Create a new python class in python_voice_assistant/actions/collection folder:
 
 ```python
 # hello.py
-from assistant.actions.action import Action
-from assistant.models.message import Message
+from python_voice_assistant.actions.action import Action
+from python_voice_assistant.models.message import Message
+
 
 class HelloAction(Action):
     def response(self, message: Message) -> Message:
@@ -48,7 +51,7 @@ That class has to inherits from the Action class and has to implement a response
 2. Create new configuration in assistant/actions/config.py:
 
 ```python
-from assistant.actions.collection.hello import HelloAction
+from python_voice_assistant.actions import HelloAction
 
 {
     "enable": True,

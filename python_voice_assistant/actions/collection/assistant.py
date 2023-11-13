@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from assistant.actions.action import Action
-from assistant.models.message import Message
+from python_voice_assistant.actions.action import Action
+from python_voice_assistant.models.message import Message
 
 
 class StopAssistantAction(Action):

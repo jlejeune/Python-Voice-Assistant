@@ -4,22 +4,24 @@ from typing import Any, List
 
 import openai
 
-from assistant.exceptions.openai import OpenAiGenerationError
-from assistant.models.message import Message, ChatCompletionMessage
+from python_voice_assistant.exceptions.openai import OpenAiGenerationError
+from python_voice_assistant.models.message import Message, ChatCompletionMessage
 
 
 class OpenAiClient:
     """Client to interact with the OpenAI API."""
 
-    def __init__(self, api_key: str) -> None:
+    def __init__(
+        self, api_key: str, model: str, max_tokens: int, temperature: float
+    ) -> None:
         openai.api_key = api_key
+        self.model: str = model
+        self.max_tokens: int = max_tokens
+        self.temperature: float = temperature
 
-    @staticmethod
     def get_chat_completion(
+        self,
         messages: List[ChatCompletionMessage],
-        model: str = "gpt-3.5-turbo",
-        max_tokens: int = 500,
-        temperature: float = 0.7,
     ) -> Message:
         """
         Returns a completion (response) from the specified OpenAI GPT model.
@@ -36,9 +38,9 @@ class OpenAiClient:
 
         completion: Any = openai.ChatCompletion.create(
             messages=messages,
-            model=model,
-            max_tokens=max_tokens,
-            temperature=temperature,
+            model=self.model,
+            max_tokens=self.max_tokens,
+            temperature=self.temperature,
         )
 
         choices = completion["choices"]
@@ -55,7 +57,7 @@ class OpenAiClient:
         if first_choice["finish_reason"] == "length":
             logging.warning(
                 "OpenAI stopped generating due to a limit on the max tokens. "
-                f"Max tokens is set to: {max_tokens}. "
+                f"Max tokens is set to: {self.max_tokens}. "
                 f"Total tokens consumed with prompt were: {tokens_used}"
             )
             was_cut_short = True
